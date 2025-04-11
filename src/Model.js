@@ -7,6 +7,7 @@ title: 3D Printable The Three Graces
 */
 
 import React, { useRef } from 'react'
+import { Dom } from 'react-three-fiber'
 import { useFrame, useLoader } from 'react-three-fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
@@ -35,6 +36,11 @@ export default function Model(props) {
           scale={[0.2, 0.224, 0.224]}>
           <meshStandardMaterial attach="material" roughness={0.9} metalness={0.5} color="#474747" />
         </mesh>
+        {/* Add Annotations using Dom */}
+        {/* Positions are estimates, adjust as needed */}
+        <Dom position={[1.75, 2, 2.5]}><div className="annotation">Contact</div></Dom>
+        <Dom position={[-2.5, 3, -2]}><div className="annotation">Portfolio</div></Dom>
+        <Dom position={[0, 4, -3.5]}><div className="annotation">Automations</div></Dom>
         <Lights />
       </group>
     </group>
@@ -75,3 +81,4 @@ function Lights() {
     </>
   )
 }
+

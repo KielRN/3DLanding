@@ -9,5 +9,6 @@ module.exports = override(
     '../../../build/three.module.js': path.resolve('./src/utils/three.js')
   }),
   addReactRefresh(),
-  addWebpackPlugin(new BundleAnalyzerPlugin())
+  // Disable BundleAnalyzerPlugin in development, keep default for production
+  addWebpackPlugin(new BundleAnalyzerPlugin({ analyzerMode: process.env.NODE_ENV === 'development' ? 'disabled' : 'server' }))
 )
